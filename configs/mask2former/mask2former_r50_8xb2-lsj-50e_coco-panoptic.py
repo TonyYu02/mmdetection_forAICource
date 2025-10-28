@@ -15,8 +15,8 @@ batch_augments = [
 ]
 data_preprocessor = dict(
     type='DetDataPreprocessor',
-    mean=[123.675, 116.28, 103.53],
-    std=[58.395, 57.12, 57.375],
+    mean=None,
+    std=None,
     bgr_to_rgb=True,
     pad_size_divisor=32,
     pad_mask=True,
@@ -206,4 +206,5 @@ log_processor = dict(type='LogProcessor',window_size=50, by_epoch=True)
 #       or not by default.
 #   - `base_batch_size` = (8 GPUs) x (2 samples per GPU).
 auto_scale_lr = dict(enable=False, base_batch_size=2)
+
 
