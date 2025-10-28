@@ -15,8 +15,8 @@ batch_augments = [
 ]
 data_preprocessor = dict(
     type='DetDataPreprocessor',
-    mean=[123.675, 116.28, 103.53],
-    std=[58.395, 57.12, 57.375],
+    mean=None,
+    std=None,
     bgr_to_rgb=True,
     pad_size_divisor=32,
     pad_mask=True,
@@ -33,3 +33,6 @@ model = dict(
         num_things_classes=num_things_classes,
         num_stuff_classes=num_stuff_classes),
     test_cfg=dict(panoptic_on=False))
+
+train_dataloader = dict(sampler=dict(type='InfiniteSampler'))
+
