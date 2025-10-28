@@ -1,5 +1,5 @@
 _base_ = [
-    '../_base_/datasets/coco_elecd.py', '../_base_/default_runtime.py'
+    '../_base_/datasets/coco_elec.py', '../_base_/default_runtime.py'
 ]
 image_size = (1024, 1024)
 
@@ -206,3 +206,4 @@ log_processor = dict(type='LogProcessor',window_size=50, by_epoch=True)
 #       or not by default.
 #   - `base_batch_size` = (8 GPUs) x (2 samples per GPU).
 auto_scale_lr = dict(enable=False, base_batch_size=2)
+
