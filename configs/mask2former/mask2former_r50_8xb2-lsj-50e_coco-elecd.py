@@ -183,8 +183,7 @@ param_scheduler = dict(
 train_cfg = dict(
     type='IterBasedTrainLoop',
     max_iters=max_iters,
-    val_interval=100,
-    dynamic_intervals=None)
+    val_interval=100)
 val_cfg = dict(type='ValLoop')
 test_cfg = dict(type='TestLoop')
 
@@ -197,3 +196,5 @@ default_hooks = dict(
         interval=1500),
      logger=dict(interval=10))
 log_processor = dict(type='LogProcessor',window_size=50, by_epoch=True)
+
+train_dataloader = dict(sampler=dict(type='InfiniteSampler'))
