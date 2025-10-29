@@ -16,8 +16,8 @@ After CUDA installed, follow official doc to install dependencies
    mim install mmengine
    pip install mmcv==2.2.0 #For Windows users, you may use VS build tool 2019 to build mmcv
    # for more information, visit https://learn.microsoft.com/en-us/visualstudio/releases/2019/history#release-dates-and-build-numbers
-   git clone -b main https://github.com/TonyYu02/mmdetection_forAICource.git mmsegmentation
-   cd mmsegmentation
+   git clone -b main https://github.com/TonyYu02/mmdetection_forAICource.git mmdetection
+   cd mmdetection
    pip install -r requirements.txt
    pip install -v -e .
    ```
