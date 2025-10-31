@@ -171,7 +171,7 @@ optim_wrapper = dict(
     clip_grad=dict(max_norm=0.01, norm_type=2))
 
 # learning policy
-max_iters = 10000
+max_iters = 20000
 param_scheduler = dict(
     type='MultiStepLR',
     begin=0,
@@ -180,10 +180,14 @@ param_scheduler = dict(
     milestones=[327778, 355092],
     gamma=0.1)
 
+interval = 100
+dynamic_intervals = [(max_iters // interval * interval + 1, max_iters)]
+
 train_cfg = dict(
     type='IterBasedTrainLoop',
     max_iters=max_iters,
-    val_interval=100)
+    val_interval=200,
+    dynamic_intervals=dynamic_intervals)
 val_cfg = dict(type='ValLoop')
 test_cfg = dict(type='TestLoop')
 
@@ -193,8 +197,9 @@ default_hooks = dict(
         by_epoch=False,
         save_last=True,
         max_keep_ckpts=3,
-        interval=1500),
-     logger=dict(interval=10))
+        interval=2000),
+     logger=dict(interval=20))
 log_processor = dict(type='LogProcessor',window_size=50, by_epoch=True)
 
 train_dataloader = dict(sampler=dict(type='InfiniteSampler'))
+
