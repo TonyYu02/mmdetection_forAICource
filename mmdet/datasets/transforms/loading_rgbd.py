@@ -33,7 +33,7 @@ class LoadDepthFromFile(BaseTransform):
 
         img_depth = cv2.imread(depth_path, cv2.IMREAD_UNCHANGED)
         if img_depth is None:
-            raise FileNotFoundError(f"深度图未找到: {img_path}")
+            raise FileNotFoundError(f"深度图未找到: {depth_path}")
 
         results['depth_map'] = img_depth
         return results
@@ -62,4 +62,5 @@ class MergeRGBD(BaseTransform):
 
         results['img'] = img_rgbd
         results['img_shape'] = img_rgbd.shape
+
         return results
